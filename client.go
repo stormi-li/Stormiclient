@@ -33,7 +33,6 @@ func NewClient(username, password string) *Client {
 		fmt.Println(err)
 		return nil
 	}
-	redisClient.Set(context.Background(), "fff", "ff", 0)
 	c := Client{redisClient: redisClient,
 		RipcClient:     ripc.NewClient(redisClient),
 		ReconfigClient: reconfig.NewClient(redisClient),
