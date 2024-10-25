@@ -8,6 +8,6 @@ import (
 
 func main() {
 	c := stormiclient.NewClient("administor", "123456654321")
-	names := c.GetConfigNames()
-	fmt.Println(names)
+	cfg := c.ReconfigClient.GetConfig("redis")
+	fmt.Println(cfg)
 }
