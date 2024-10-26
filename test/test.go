@@ -7,7 +7,10 @@ import (
 )
 
 func main() {
-	c := stormiclient.NewClient("administor", "123456654321")
-	cfg := c.ReconfigClient.GetConfig("redis")
+	stormiclient.Register("your username", "yourpassword")
+	c := stormiclient.NewClient("your username", "yourpassword")
+	cfg := c.ReconfigClient.NewConfig("redis", "localhost:6379")
+	cfg.Upload()
+	cfg = c.ReconfigClient.GetConfig("redis")
 	fmt.Println(cfg)
 }
